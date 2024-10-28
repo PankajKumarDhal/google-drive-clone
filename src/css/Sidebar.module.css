@@ -1,0 +1,93 @@
+.sidebar{
+    margin-top: 10px;
+
+}
+.sidebar__btn button{
+    background-color: transparent;
+    border: 1px solid lightgray;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-left: 20px;
+    box-shadow: 2px 2px 2px #ccc;
+
+
+}
+.sidebar__btn button span{
+    font-size: 16px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+.sidebar__options{
+    margin-top: 10px;
+}
+.sidebar__option{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 0px 20px 20px 0px;
+    gap: 10px;
+
+}
+.sidebar__option span{
+    margin-left: 15x;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(78, 78, 78);
+}
+.sidebar__option:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.sidebar__option_Active{
+    background-color: #e8f0fe;
+
+}
+.sidebar__option_Active span{
+    color: rgb(26, 26, 212);
+}
+/* .sidebar__option_Active svg{
+   color: rgb(26, 26, 212); 
+} */
+.progres__bar{
+    padding: 0px 20px;
+
+}
+.progres__bar span{
+    display: block;   
+    font-size: 13px;
+    color: #333;
+}
+
+.modal__pop{
+    top:50%;
+    background-color: #fff;
+    width: 400px;
+    margin: 0px auto;
+    position: relative;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 10px;
+}
+.modalHeading{
+    text-align: center;
+    border-bottom: 1px solid lightgrey;
+    height: 50px;
+
+}
+
+.post__submit{
+    width: 100%;
+    background: #2381fa;
+    padding: 10px 20px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 16px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}

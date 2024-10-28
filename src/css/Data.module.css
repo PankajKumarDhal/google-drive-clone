@@ -56,7 +56,7 @@
 .detailsRow p b{
     display: flex;
     align-items: center;
-    /* font-size: 13px; */
+    font-size: 13px;
 }
 .detailsRow p svg{
     font-size: 25px;

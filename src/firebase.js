@@ -23,3 +23,7 @@ const storage = getStorage(app);
 
 // Export services
 export { auth, provider, db, storage, signInWithPopup }; // Ensure signInWithPopup is exported
+
+
+
+

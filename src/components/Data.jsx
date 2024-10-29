@@ -2,12 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "../css/Data.module.css";
 import { IoMdArrowDropdown } from "react-icons/io";
 import {
-  FaList,
-  FaFile,
-  FaTrash,
-  FaDownload,
-  FaShareAlt,
-  FaCopy,
+  FaList, FaFile, FaTrash, FaDownload, FaShareAlt, FaCopy,
 } from "react-icons/fa";
 import { MdInfoOutline } from "react-icons/md";
 import { IoArrowDownSharp } from "react-icons/io5";
@@ -15,10 +10,10 @@ import { db } from "../firebase";
 import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
 import { SlOptions } from "react-icons/sl";
 
-function Data() {
+function Data({ searchTerm }) {
   const [files, setFiles] = useState([]);
   const [showOptions, setShowOptions] = useState(null);
-  const optionsMenuRef = useRef(null); // Ref to track optionsMenu
+  const optionsMenuRef = useRef(null);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "myfiles"), (snapshot) => {
@@ -34,11 +29,8 @@ function Data() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        optionsMenuRef.current &&
-        !optionsMenuRef.current.contains(event.target)
-      ) {
-        setShowOptions(null); // Close the menu if clicked outside
+      if (optionsMenuRef.current && !optionsMenuRef.current.contains(event.target)) {
+        setShowOptions(null);
       }
     };
 
@@ -56,6 +48,10 @@ function Data() {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
   }
+
+  const filteredFiles = files.filter(file =>
+    file.data.filename.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const toggleOptions = (id) => {
     setShowOptions(showOptions === id ? null : id);
@@ -107,7 +103,7 @@ function Data() {
       </div>
       <div className={styles.data__content}>
         <div className={styles.data__grid}>
-          {files.map((file) => (
+          {filteredFiles.map((file) => (
             <div className={styles.data__file} key={file.id}>
               <FaFile />
               <p>{file.data.filename}</p>
@@ -116,26 +112,14 @@ function Data() {
         </div>
         <div className={styles.data__list}>
           <div className={styles.detailsRow}>
-            <p>
-              <b>
-                Name <IoArrowDownSharp />
-              </b>
-            </p>
-            <p>
-              <b>Owner</b>
-            </p>
-            <p>
-              <b>Last Modified</b>
-            </p>
-            <p>
-              <b>File Size</b>
-            </p>
-            <p>
-              <b>Options</b>
-            </p>
+            <p><b>Name <IoArrowDownSharp /></b></p>
+            <p><b>Owner</b></p>
+            <p><b>Last Modified</b></p>
+            <p><b>File Size</b></p>
+            <p><b>Options</b></p>
           </div>
 
-          {files.map((file) => (
+          {filteredFiles.map((file) => (
             <div className={styles.detailsRow} key={file.id}>
               <p>
                 <a
@@ -147,19 +131,13 @@ function Data() {
                 </a>
               </p>
               <p>Me</p>
-              <p>
-                {new Date(file.data.timestamp?.seconds * 1000).toUTCString()}
-              </p>
+              <p>{new Date(file.data.timestamp?.seconds * 1000).toUTCString()}</p>
               <p>{formatBytes(file.data.size)}</p>
               <p>
                 <SlOptions onClick={() => toggleOptions(file.id)} />
                 {showOptions === file.id && (
                   <div className={styles.optionsMenu} ref={optionsMenuRef}>
-                    <button
-                      onClick={() =>
-                        handleDownload(file.data.fileURL, file.data.filename)
-                      }
-                    >
+                    <button onClick={() => handleDownload(file.data.fileURL, file.data.filename)}>
                       <FaDownload /> Download
                     </button>
                     <button onClick={() => handleDelete(file.id)}>
@@ -183,3 +161,10 @@ function Data() {
 }
 
 export default Data;
+
+Data.js
+
+
+
+
+

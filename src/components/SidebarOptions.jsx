@@ -1,12 +1,12 @@
 // SidebarOptions.js
 import React from "react";
 import styles from "../css/Sidebar.module.css";
-import { 
-  MdMobileScreenShare, 
-  MdDevices, 
-  MdOutlinePeopleAlt, 
-  MdQueryBuilder, 
-  MdDeleteOutline 
+import {
+  MdMobileScreenShare,
+  MdDevices,
+  MdOutlinePeopleAlt,
+  MdQueryBuilder,
+  MdDeleteOutline
 } from "react-icons/md";
 import { IoStarOutline } from "react-icons/io5";
 
@@ -60,3 +60,5 @@ function SidebarOptions({ activeOption, handleOptionClick }) {
 }
 
 export default SidebarOptions;
+
+

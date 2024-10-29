@@ -1,8 +1,8 @@
+
 import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
 import styles from "../css/Sidebar.module.css";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; 
-import { db, storage } from "../firebase"; 
+import SidebarOptions from "./SidebarOptions"; // Import the SidebarOptions component
 import {
   MdMobileScreenShare,
   MdDevices,
@@ -12,19 +12,19 @@ import {
   MdOutlineCloudQueue,
 } from "react-icons/md";
 import { IoStarOutline } from "react-icons/io5";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"; // Import Firestore functions
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { db, storage } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+
 
 function Sidebar() {
   const [open, setOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [file, setFile] = useState(null);
+  const [activeOption, setActiveOption] = useState("My Drive"); // Track active option
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -35,26 +35,21 @@ function Sidebar() {
   const handleUpload = async (event) => {
     event.preventDefault();
     setUploading(true);
-
     if (!file) {
       console.warn("No file selected");
       setUploading(false);
       return;
     }
-
     try {
       const storageRef = ref(storage, `files/${file.name}`);
       await uploadBytes(storageRef, file);
-
       const downloadURL = await getDownloadURL(storageRef);
-
       await addDoc(collection(db, "myfiles"), {
         timestamp: serverTimestamp(),
         filename: file.name,
         fileURL: downloadURL,
         size: file.size,
       });
-
       setUploading(false);
       setFile(null);
       setOpen(false);
@@ -62,6 +57,10 @@ function Sidebar() {
       console.error("Error uploading file:", error);
       setUploading(false);
     }
+  };
+
+  const handleOptionClick = (option) => {
+    setActiveOption(option); // Set active option
   };
 
   return (
@@ -100,36 +99,14 @@ function Sidebar() {
             <span>New</span>
           </button>
         </div>
-        <div className={styles.sidebar__options}>
-          <div
-            className={`${styles.sidebar__option} ${styles.sidebar__option_Active}`}
-          >
-            <MdMobileScreenShare />
-            <span>
-              <b>My Drive</b>
-            </span>
-          </div>
-          <div className={styles.sidebar__option}>
-            <MdDevices />
-            <span>Computers</span>
-          </div>
-          <div className={styles.sidebar__option}>
-            <MdOutlinePeopleAlt />
-            <span>Share with me</span>
-          </div>
-          <div className={styles.sidebar__option}>
-            <MdQueryBuilder />
-            <span>Recent</span>
-          </div>
-          <div className={styles.sidebar__option}>
-            <IoStarOutline />
-            <span>Starred</span>
-          </div>
-          <div className={styles.sidebar__option}>
-            <MdDeleteOutline />
-            <span>Trash</span>
-          </div>
-        </div>
+
+        <SidebarOptions
+          activeOption={activeOption}
+          handleOptionClick={handleOptionClick}
+        />
+        {/* add some data */}
+        {/* <Data activeOption={activeOption} /> */}
+
         <hr />
         <div className={styles.sidebar__options}>
           <div className={styles.sidebar__option}>
@@ -137,6 +114,7 @@ function Sidebar() {
             <span>Storage</span>
           </div>
           <div className={styles.progress__bar}>
+            <progress size="tiny" value="50" max="100" />
             <span>6.45 GB of 15 GB used</span>
           </div>
         </div>
@@ -146,3 +124,6 @@ function Sidebar() {
 }
 
 export default Sidebar;
+
+
+

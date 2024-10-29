@@ -1,4 +1,4 @@
-.sidebar {
+/* .sidebar {
   margin-top: 10px;
   width: 250px;
   transition: width 0.3s ease;
@@ -58,6 +58,27 @@
   padding: 0px 20px;
 }
 
+.progress__bar progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80%;
+  height: 10px;
+}
+
+.progress__bar progress::-webkit-progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 6px;
+}
+
+.progress__bar progress::-webkit-progress-value {
+  background-color: #2381fa;
+  border-radius: 6px;
+}
+.progress__bar progress::-moz-progress-bar {
+  background-color: #2381fa;
+  border-radius: 6px;
+}
+
 .progress__bar span {
   display: block;
   font-size: 13px;
@@ -115,9 +136,189 @@
     width: 100%;
     margin: auto;
   }
+  .progress__bar progress {
+    text-align: center;
+  }
 
   .progress__bar span {
     text-align: center;
   }
- 
+} */
+
+
+
+/* Sidebar Container */
+.sidebar {
+  margin-top: 10px;
+  width: 250px;
+  transition: width 0.3s ease;
+}
+
+/* Button Styles */
+.sidebar__btn button {
+  background-color: transparent;
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-left: 20px;
+  box-shadow: 2px 2px 2px #ccc;
+}
+
+.sidebar__btn button span {
+  font-size: 16px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+/* Sidebar Options */
+.sidebar__options {
+  margin-top: 10px;
+}
+
+.sidebar__option {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 0px 20px 20px 0px;
+  gap: 10px;
+  transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+/* Option Text */
+.sidebar__option span {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(78, 78, 78);
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect */
+.sidebar__option:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+/* Active Option Style */
+.sidebar__option_Active {
+  background-color: #e8f0fe;
+}
+
+.sidebar__option_Active span {
+  color: rgb(26, 26, 212);
+}
+
+/* Progress Bar */
+.progress__bar {
+  padding: 0px 20px;
+}
+
+.progress__bar progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80%;
+  height: 10px;
+}
+
+.progress__bar progress::-webkit-progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 6px;
+}
+
+.progress__bar progress::-webkit-progress-value {
+  background-color: #2381fa;
+  border-radius: 6px;
+}
+
+.progress__bar progress::-moz-progress-bar {
+  background-color: #2381fa;
+  border-radius: 6px;
+}
+
+.progress__bar span {
+  display: block;
+  font-size: 13px;
+  color: #333;
+}
+
+/* Modal Popup */
+.modal__pop {
+  top: 50%;
+  background-color: #fff;
+  width: 400px;
+  margin: 0px auto;
+  position: relative;
+  transform: translateY(-50%);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.modalHeading {
+  text-align: center;
+  border-bottom: 1px solid lightgrey;
+  height: 50px;
+}
+
+.modalBody {
+  padding: 20px;
+  text-align: center;
+}
+
+.uploading {
+  color: #2381fa;
+  font-weight: bold;
+}
+
+/* Submit Button */
+.post__submit {
+  width: 100%;
+  background: #2381fa;
+  padding: 10px 20px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.post__submit:hover {
+  background: #196dc3;
+}
+
+/* Responsive Design */
+@media (max-width: 760px) {
+  .sidebar {
+    width: 100px;
+  }
+
+  .sidebar__option {
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .sidebar__option span {
+    opacity: 0;
+    display: none;
+  }
+
+  .progress__bar progress {
+    width: 100%;
+  }
+
+  .progress__bar span {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+
+  hr {
+    width: 100%;
+    margin: auto;
+  }
 }

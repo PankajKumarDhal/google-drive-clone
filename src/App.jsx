@@ -20,6 +20,18 @@ function App() {
         alert(error.message);
       });
   };
+  // const signIn = () => {
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log("User object:", user); // Check the user data
+  //       setUser(user);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error during sign-in:", error);
+  //       alert(error.message);
+  //     });
+  // };
 
   return (
     <>

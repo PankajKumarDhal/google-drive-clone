@@ -33,6 +33,8 @@ function Header({ photoURL, setSearchTerm }) {
         <span>
           <IoMdApps />
           <img src={photoURL} alt="User Profile" className={styles.profilePicture} />
+          {/* <img src={photoURL || "https://via.placeholder.com/32"} alt="User Profile" className={styles.profilePicture} /> */}
+
         </span>
       </div>
     </div>

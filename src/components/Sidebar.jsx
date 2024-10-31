@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
 import styles from "../css/Sidebar.module.css";
-import SidebarOptions from "./SidebarOptions"; // Import the SidebarOptions component
+import SidebarOptions from "./SidebarOptions";
 import {
   MdMobileScreenShare,
   MdDevices,
@@ -16,12 +15,11 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
-
-function Sidebar() {
+function Sidebar({ setActiveOption }) {
   const [open, setOpen] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [file, setFile] = useState(null);
-  const [activeOption, setActiveOption] = useState("My Drive"); // Track active option
+  const [activeOption, setLocalActiveOption] = useState("My Drive");
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
@@ -60,14 +58,15 @@ function Sidebar() {
   };
 
   const handleOptionClick = (option) => {
-    setActiveOption(option); // Set active option
+    setLocalActiveOption(option);
+    setActiveOption(option);
   };
 
   return (
     <>
       <Modal open={open} onClose={handleClose}>
         <div className={styles.modal__pop}>
-          <form action="">
+          <form>
             <div className={styles.modalHeading}>
               <h3>Select file you want to upload</h3>
             </div>
@@ -104,8 +103,6 @@ function Sidebar() {
           activeOption={activeOption}
           handleOptionClick={handleOptionClick}
         />
-        {/* add some data */}
-        {/* <Data activeOption={activeOption} /> */}
 
         <hr />
         <div className={styles.sidebar__options}>
@@ -124,6 +121,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
-
-

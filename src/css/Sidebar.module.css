@@ -154,7 +154,7 @@
   transition: width 0.3s ease;
 }
 
-/* Button Styles */
+
 .sidebar__btn button {
   background-color: transparent;
   border: 1px solid lightgray;
@@ -164,6 +164,8 @@
   padding: 5px 10px;
   margin-left: 20px;
   box-shadow: 2px 2px 2px #ccc;
+  cursor: pointer;
+  
 }
 
 .sidebar__btn button span {
@@ -172,7 +174,7 @@
   margin-left: 10px;
 }
 
-/* Sidebar Options */
+
 .sidebar__options {
   margin-top: 10px;
 }
@@ -186,7 +188,6 @@
   transition: padding 0.3s ease, background-color 0.3s ease;
 }
 
-/* Option Text */
 .sidebar__option span {
   font-size: 15px;
   font-weight: 500;
@@ -194,13 +195,11 @@
   transition: opacity 0.3s ease, color 0.3s ease;
 }
 
-/* Hover Effect */
 .sidebar__option:hover {
   background-color: whitesmoke;
   cursor: pointer;
 }
 
-/* Active Option Style */
 .sidebar__option_Active {
   background-color: #e8f0fe;
 }
@@ -209,7 +208,6 @@
   color: rgb(26, 26, 212);
 }
 
-/* Progress Bar */
 .progress__bar {
   padding: 0px 20px;
 }
@@ -242,7 +240,7 @@
   color: #333;
 }
 
-/* Modal Popup */
+
 .modal__pop {
   top: 50%;
   background-color: #fff;
@@ -270,7 +268,7 @@
   font-weight: bold;
 }
 
-/* Submit Button */
+
 .post__submit {
   width: 100%;
   background: #2381fa;
@@ -291,7 +289,7 @@
   background: #196dc3;
 }
 
-/* Responsive Design */
+
 @media (max-width: 760px) {
   .sidebar {
     width: 100px;

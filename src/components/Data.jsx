@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../css/Data.module.css";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -22,7 +21,7 @@ import {
 } from "firebase/firestore";
 import { SlOptions } from "react-icons/sl";
 import { IoMdStarOutline } from "react-icons/io";
-
+import { BiSolidFilePdf } from "react-icons/bi";
 
 function Data({ searchTerm, activeOption }) {
   const [files, setFiles] = useState([]);
@@ -150,7 +149,9 @@ function Data({ searchTerm, activeOption }) {
         <div className={styles.data__grid}>
           {filteredFiles.map((file) => (
             <div className={styles.data__file} key={file.id}>
-              <FaFile />
+              {/* <FaFile /> */}
+              <BiSolidFilePdf />
+
               <p>{file.data.filename}</p>
             </div>
           ))}
@@ -186,15 +187,16 @@ function Data({ searchTerm, activeOption }) {
                   onClick={() => toggleStar(file.id, file.data.isStarred)}
                 >
                   {/* {file.data.isStarred ? <IoStar /> : <IoStarOutline />} */}
-                  {file.data.isStarred ? <IoStar /> : <IoMdStarOutline />
-                  }
+                  {file.data.isStarred ? <IoStar /> : <IoMdStarOutline />}
                 </span>
                 <a
                   href={file.data.fileURL}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaFile /> {file.data.filename}
+                  {/* <FaFile /> {file.data.filename} */}
+                  <BiSolidFilePdf />
+                  {file.data.filename}
                 </a>
               </p>
               <p>Me</p>

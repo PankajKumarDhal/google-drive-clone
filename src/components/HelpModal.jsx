@@ -1,36 +1,4 @@
-// // HelpPopup.js
-// import React from "react";
-// import styles from "../css/HelpPopup.css";
-// import { IoIosClose } from "react-icons/io";
 
-// function HelpPopup({ onClose }) {
-//   return (
-//     <div className={styles.popupOverlay}>
-//       <div className={styles.popup}>
-//         <div className={styles.popupHeader}>
-//           <h3>Need Help?</h3>
-//           <IoIosClose onClick={onClose} className={styles.closeIcon} />
-//         </div>
-//         <img
-//           src="../css/pk.png" // Replace with actual image URL if needed
-//           alt="User"
-//           className={styles.userImage}
-//         />
-//         <h2>Pankaj Kumar Dhal</h2>
-//         <p>Full Stack Web Developer</p>
-//         <p>Contact Me:</p>
-//         <div className={styles.socialLinks}>
-//           <a href="https://github.com/PankajKumarDhal?tab=repositories" target="_blank" rel="noopener noreferrer">Github</a>
-//           <a href="https://www.linkedin.com/in/pankaj-kumar-dhal-206131229/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-//           <a href="" target="_blank" rel="noopener noreferrer">Instagram</a>
-//           <a href="" target="_blank" rel="noopener noreferrer">Facebook</a>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default HelpPopup;
 import React from "react";
 import styles from "../css/HelpModal.module.css";
 import profileImage from "../img/pk.png";

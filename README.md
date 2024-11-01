@@ -34,28 +34,31 @@ This project is a Google Drive-inspired web application that enables users to ma
 ## Screenshots
 
 ### Sign Up & Login Screen
-![Sign Up & Login Screen](img/login)
+![Sign Up & Login Screen](src/img/login.png)
 
 ### Main Dashboard
-![Main Dashboard](images/dashboard.png)
+![Main Dashboard](src/img/Screenshot%202024-11-01%20160224.png)
 
 ### Upload File
-![Upload File](images/upload_file.png)
+![Upload File](src/img/uploadfile.png)
 
 ### My Drive
-![My Drive](images/my_drive.png)
+![My Drive](src/img/myDrive.png)
+
+### Contact & Help
+![Help](src/img/help.png)
 
 ### Recent Files
-![Recent Files](images/recent_files.png)
+![Recent Files](src/img/recent.png)
 
 ### Starred Files
-![Starred Files](images/starred_files.png)
+![Starred Files](src/img/star.png)
 
 ### Trash
-![Trash](images/trash.png)
+![Trash](src/img/trash.png)
 
 ### Dark Mode
-![Dark Mode](images/dark_mode.png)
+![Dark Mode](src/img/dark.png)
   
 ## Demo
 
@@ -80,6 +83,6 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/google-drive-clone.git
+   git clone https://github.com/PankajKumarDhal/google-drive-clone.git
    cd google-drive-clone
    

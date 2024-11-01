@@ -294,7 +294,9 @@
   .sidebar {
     width: 100px;
   }
-
+  .sidebar__btn span{
+    display: none;
+  }
   .sidebar__option {
     padding: 10px;
     justify-content: center;

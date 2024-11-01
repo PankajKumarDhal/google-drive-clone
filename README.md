@@ -29,11 +29,12 @@ This project is a Google Drive-inspired web application that enables users to ma
 - **Trash**: Deleted files are moved here and can be permanently removed.
 - **Download, Copy, Share**: Options to manage files.
 - **Dark/Light Mode**: Toggle between dark and light themes.
+- **Hepl Desk**: Users can contact with developer for help.
 
 ## Screenshots
 
-### Login Screen
-![Login Screen](images/login_screen.png)
+### Sign Up & Login Screen
+![Sign Up & Login Screen](img/login)
 
 ### Main Dashboard
 ![Main Dashboard](images/dashboard.png)

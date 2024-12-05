@@ -70,13 +70,13 @@ function Header({ photoURL, setSearchTerm, setUser, theme, toggleTheme }) {
         {showThemeOptions && (
           <div className={styles.themeOptions} role="menu">
             <button
-              onClick={() => toggleTheme("light")}
+              onClick={() => toggleTheme("dark")}
               aria-label="Switch to Light Mode"
             >
               Light Mode
             </button>
             <button
-              onClick={() => toggleTheme("dark")}
+              onClick={() => toggleTheme("light")}
               aria-label="Switch to Dark Mode"
             >
               Dark Mode
